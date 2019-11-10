@@ -1,0 +1,42 @@
+apply plugin: 'scala'
+apply plugin: 'maven'
+apply plugin: 'eclipse'
+
+repositories{
+	mavenCentral()
+	mavenLocal()
+}
+
+eclipse {
+	classpath {
+		downloadJavadoc = true
+		downloadSources = true
+	}
+}
+
+dependencies {
+	implementation 'org.scala-lang:scala-library:2.11.8'
+	compile 'org.apache.spark:spark-sql_2.11:2.4.0','org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.0','org.apache.spark:spark-mllib_2.11:2.4.0'
+	runtime 'org.apache.spark:spark-sql_2.11:2.4.0','org.apache.spark:spark-sql-kafka-0-10_2.11:2.4.0','org.apache.spark:spark-mllib_2.11:2.4.0'
+	testCompile files('src/test/resources/my.kafka-1.0.0.jar'),'org.testng:testng:6.8','org.apache.kafka:kafka-clients:2.0.0'
+	testRuntime files('src/test/resources/my.kafka-1.0.0.jar'),'org.testng:testng:6.8','org.apache.kafka:kafka-clients:2.0.0'
+}
+
+task copyDeps(type:Copy) {
+	from configurations.compile
+	into 'build/deps'
+}
+
+task copyTestDeps(type:Copy) {
+	from configurations.testCompile
+	into 'build/deps'
+}
+
+test{
+	useTestNG(){
+		useDefaultListeners = true
+		suites 'src/test/resources/tests.xml'
+	}
+	minHeapSize = "512m"
+	maxHeapSize = "1024m"
+}

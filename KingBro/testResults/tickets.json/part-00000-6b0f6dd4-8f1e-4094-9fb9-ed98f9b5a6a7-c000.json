@@ -1,0 +1,8 @@
+{"tickId":"Ticket1","category":"p0","desc":" Blocks from further testing , The ticket is critical "}
+{"tickId":"Ticket2","category":"p2","desc":" Display not working "}
+{"tickId":"Ticket3","category":"p3","desc":" Letters need to be in bold "}
+{"tickId":"Ticket4","category":"p2","desc":" Display not working "}
+{"tickId":"Ticket5","category":"p0","desc":" Installer not working , The ticket is critical "}
+{"tickId":"Ticket6","category":"p0","desc":" Crashing with OOM , The ticket is critical "}
+{"tickId":"Ticket7","category":"p0","desc":" Application timing out , The ticket is critical "}
+{"tickId":"Ticket8","category":"p0","desc":" Heartbeat failed to establish connecion , The ticket is critical "}

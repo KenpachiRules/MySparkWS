@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="KingBroMlTestSuite" verbose="10">
+	<test name="RunBatchStreamTests">
+	    <parameter name = "broker" value = "localhost:9092"/>
+	    <parameter name = "topic" value = "Tickets"/>
+	    <parameter name = "partitions" value = "1"/>
+	    <parameter name = "replication_factor" value = "1"/>
+	    <parameter name = "queryName" value ="kfkToFF"/>
+	    <parameter name = "sourceFile" value = "/Users/harikrishna/Documents/SparkWS/KingBro/testResults/tickets.json"/>
+	    <parameter name = "targetFile" value = "/Users/harikrishna/Documents/SparkWS/KingBro/testResults/tickets.json"/>
+		<classes>
+			<class name="com.hari.learning.spark.ml.tests.RunSparkMLTests"/>
+		</classes>
+	</test>
+</suite>
