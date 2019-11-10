@@ -8,3 +8,5 @@ Have also written a gradle test "RunSparkMLTests" which will create a topic call
 
 Only prerequisite is Kafka needs to be installed and run on localhost port 9092.
 
+Run the command gradle -b build_king_bro.gradle -i build --debug --rerun-tasks
+
